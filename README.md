@@ -53,13 +53,13 @@ database.
 5. Add a new connection in from the Admin tab. You should use the following
    parameters:
 
-    - Connection Id: media-metadata-db
+    - Connection Id: `media-metadata-db`
     - Connection Type: Postgres
-    - Host: media-db
-    - Schema: media
-    - Login: media
-    - Password: media
-    - Port: 5432
+    - Host: `media-db`
+    - Schema: `media`
+    - Login: `media`
+    - Password: `media`
+    - Port: `5432`
 
 6. Enable the `weekly_film_discovery` DAG and voila!
 
