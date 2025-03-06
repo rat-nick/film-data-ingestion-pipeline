@@ -14,9 +14,7 @@ database.
     -   `films.py`: Contains functions to fetch film data and genres from TMDB.
 -   `docker-compose.yaml`: Docker Compose configuration to set up the Airflow
     and PostgreSQL services.
--   `schema.sql`: SQL schema for the `film_metadata` table.
--   `.gitignore`: Specifies files and directories to be ignored by Git.
--   `LICENSE`: License information for the project.
+-   `schema.sql`: SQL schema for the database containing the production data.
 
 ## Getting Started
 
@@ -24,6 +22,7 @@ database.
 
 -   Docker
 -   Docker Compose
+-   TMDB API key
 
 ### Setup
 
@@ -34,10 +33,12 @@ database.
     cd film-data-ingestion-pipeline
     ```
 
-2. Create a `.env` file with your TMDB API key:
+2. Create a `.env` and run the following commands:
 
     ```sh
-    echo "TMDB_API_KEY=your_api_key_here" > .env
+    echo "TMDB_API_KEY=<your_api_key_here>" > .env
+    echo "AIRFLOW_UID=50000" > .env
+    echo "AIRFLOW_GID=0" > .env
     ```
 
 3. Start the services using Docker Compose:
@@ -49,6 +50,19 @@ database.
 4. Access the Airflow webserver at `http://localhost:8080` and log in with the
    default credentials (`airflow`/`airflow`).
 
+5. Add a new connection in from the Admin tab. You should use the following
+   parameters:
+
+    - Connection Id: media-metadata-db
+    - Connection Type: Postgres
+    - Host: media-db
+    - Schema: media
+    - Login: media
+    - Password: media
+    - Port: 5432
+
+6. Enable the `weekly_film_discovery` DAG and voila!
+
 ## Usage
 
 The pipeline is scheduled to run weekly and will:
@@ -58,16 +72,11 @@ The pipeline is scheduled to run weekly and will:
 3. Load the data into the PostgreSQL database.
 4. Clean up temporary files.
 
+### Extra
+
+If you wish to explore the media database, the port on the host is `15432`
+
 ## License
 
 This project is licensed under the BSD 3-Clause License. See the
 [LICENSE](./LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any
-changes.
-
-## Contact
-
-For any inquiries, please contact Nikola Ratinac.
