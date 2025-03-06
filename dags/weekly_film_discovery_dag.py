@@ -89,7 +89,7 @@ default_args = {
     "owner": "rat-nick",
     "retrires": 3,
     "retry_delay": timedelta(hours=2),
-    "start_date" : datetime(2000, 1, 1),
+    "start_date" : datetime(1888, 1, 1),
 }
 
 with DAG(
