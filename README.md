@@ -53,13 +53,19 @@ database.
 5. Add a new connection in from the Admin tab. You should use the following
    parameters:
 
-    - Connection Id: `media-metadata-db`
-    - Connection Type: Postgres
-    - Host: `media-db`
-    - Schema: `media`
-    - Login: `media`
-    - Password: `media`
-    - Port: `5432`
+    | Parameter       | Value               |
+    | --------------- | ------------------- |
+    | Connection Id   | `media-metadata-db` |
+    | Connection Type | Postgres            |
+    | Host            | `media-db`          |
+    | Schema          | `media`             |
+    | Login           | `media`             |
+    | Password        | `media`             |
+    | Port            | `5432`              |
+
+Of course, you could use a DBaaS like [neon](https://neon.tech), but the free
+tier is limited for the data that will be ingested. Just don't forget to change
+the connection parameters.
 
 6. Enable the `weekly_film_discovery` DAG and voila!
 
