@@ -36,9 +36,10 @@ database.
 2. Create a `.env` and run the following commands:
 
     ```sh
-    echo "TMDB_API_KEY=<your_api_key_here>" > .env
-    echo "AIRFLOW_UID=50000" > .env
-    echo "AIRFLOW_GID=0" > .env
+    touch .env
+    echo "TMDB_API_KEY=<your_api_key_here>" >> .env
+    echo "AIRFLOW_UID=50000" >> .env
+    echo "AIRFLOW_GID=0" >> .env
     ```
 
 3. Start the services using Docker Compose:
@@ -50,7 +51,7 @@ database.
 4. Access the Airflow webserver at `http://localhost:8080` and log in with the
    default credentials (`airflow`/`airflow`).
 
-5. Add a new connection in from the Admin tab. You should use the following
+5. Add a new connection from the Admin tab. You should use the following
    parameters:
 
     | Parameter       | Value               |
