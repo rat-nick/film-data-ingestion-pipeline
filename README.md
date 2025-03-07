@@ -83,6 +83,14 @@ The pipeline is scheduled to run weekly and will:
 
 If you wish to explore the media database, the port on the host is `15432`
 
+## Disclaimer
+
+- This project **uses the TMDB API** but is **not endorsed or certified by TMDB**.
+- TMDB data is used in compliance with their [Terms of Use](https://www.themoviedb.org/terms-of-use).
+- This project is **for personal and educational purposes only** and does **not** redistribute or resell TMDB data.
+
+For more information, visit **[TMDB's official website](https://www.themoviedb.org/)**.
+
 ## License
 
 This project is licensed under the BSD 3-Clause License. See the
